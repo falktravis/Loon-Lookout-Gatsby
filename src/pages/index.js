@@ -1,174 +1,259 @@
-import * as React from "react"
-
-const pageStyles = {
-  color: "#232129",
-  padding: 96,
-  fontFamily: "-apple-system, Roboto, sans-serif, serif",
-}
-const headingStyles = {
-  marginTop: 0,
-  marginBottom: 64,
-  maxWidth: 320,
-}
-const headingAccentStyles = {
-  color: "#663399",
-}
-const paragraphStyles = {
-  marginBottom: 48,
-}
-const codeStyles = {
-  color: "#8A6534",
-  padding: 4,
-  backgroundColor: "#FFF4DB",
-  fontSize: "1.25rem",
-  borderRadius: 4,
-}
-const listStyles = {
-  marginBottom: 96,
-  paddingLeft: 0,
-}
-const listItemStyles = {
-  fontWeight: 300,
-  fontSize: 24,
-  maxWidth: 560,
-  marginBottom: 30,
-}
-
-const linkStyle = {
-  color: "#8954A8",
-  fontWeight: "bold",
-  fontSize: 16,
-  verticalAlign: "5%",
-}
-
-const docLinkStyle = {
-  ...linkStyle,
-  listStyleType: "none",
-  marginBottom: 24,
-}
-
-const descriptionStyle = {
-  color: "#232129",
-  fontSize: 14,
-  marginTop: 10,
-  marginBottom: 0,
-  lineHeight: 1.25,
-}
-
-const docLink = {
-  text: "Documentation",
-  url: "https://www.gatsbyjs.com/docs/",
-  color: "#8954A8",
-}
-
-const badgeStyle = {
-  color: "#fff",
-  backgroundColor: "#088413",
-  border: "1px solid #088413",
-  fontSize: 11,
-  fontWeight: "bold",
-  letterSpacing: 1,
-  borderRadius: 4,
-  padding: "4px 6px",
-  display: "inline-block",
-  position: "relative",
-  top: -2,
-  marginLeft: 10,
-  lineHeight: 1,
-}
-
-const links = [
-  {
-    text: "Tutorial",
-    url: "https://www.gatsbyjs.com/docs/tutorial/",
-    description:
-      "A great place to get started if you're new to web development. Designed to guide you through setting up your first Gatsby site.",
-    color: "#E95800",
-  },
-  {
-    text: "How to Guides",
-    url: "https://www.gatsbyjs.com/docs/how-to/",
-    description:
-      "Practical step-by-step guides to help you achieve a specific goal. Most useful when you're trying to get something done.",
-    color: "#1099A8",
-  },
-  {
-    text: "Reference Guides",
-    url: "https://www.gatsbyjs.com/docs/reference/",
-    description:
-      "Nitty-gritty technical descriptions of how Gatsby works. Most useful when you need detailed information about Gatsby's APIs.",
-    color: "#BC027F",
-  },
-  {
-    text: "Conceptual Guides",
-    url: "https://www.gatsbyjs.com/docs/conceptual/",
-    description:
-      "Big-picture explanations of higher-level Gatsby concepts. Most useful for building understanding of a particular topic.",
-    color: "#0D96F2",
-  },
-  {
-    text: "Plugin Library",
-    url: "https://www.gatsbyjs.com/plugins",
-    description:
-      "Add functionality and customize your Gatsby site or app with thousands of plugins built by our amazing developer community.",
-    color: "#8EB814",
-  },
-  {
-    text: "Build and Host",
-    url: "https://www.gatsbyjs.com/cloud",
-    badge: true,
-    description:
-      "Now you’re ready to show the world! Give your Gatsby site superpowers: Build and host on Gatsby Cloud. Get started for free!",
-    color: "#663399",
-  },
-]
+import React, { useEffect, useState, useRef } from 'react';
+import Map from '../components/Map';
+import { Link } from 'react-scroll';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import emailjs from '@emailjs/browser';
+import { Navigation, A11y } from 'swiper';
+import 'swiper/css';
+import 'swiper/css/parallax';
+import 'swiper/css/navigation';
+import expandArrow from '../images/expandArrow.svg';
+import grillIcon from '../images/grill.svg'
+import insulatedIcon from '../images/insulated.svg';
+import linensIcon from '../images/linens.svg';
+import parkingIcon from '../images/parking.svg';
+import wifiIcon from '../images/wifi.svg';
+import televisionIcon from '../images/television.svg';
+import waterIcon from '../images/water.svg';
+import ownersIcon from '../images/owners.svg'
+import refrigeratorIcon from '../images/refrigerator.svg';
+import stoveIcon from '../images/stove.svg';
+import microwaveIcon from '../images/microwave.svg';
+import coffeeIcon from '../images/coffee.svg';
+import circleCheckIcon from '../images/circleCheck.png';
+import { StaticImage } from 'gatsby-plugin-image';
+import '../styles/main.scss';
 
 const IndexPage = () => {
+  const [headerClass, setHeaderClass] = useState("");
+  const [addressClass, setAddressClass] = useState("address");
+  const [arrowClass, setArrowClass] = useState("arrow");
+  const [leftClass, setLeftClass] = useState('active');
+  const [rightClass, setRightClass] = useState('');
+  const [isReserve, setIsReserve] = useState(true);
+  const [isSubmit, setIsSubmit] = useState(false);
+  const form = useRef();
+
+  useEffect(() => {
+      setHeaderClass("headerAnim");
+      setAddressClass("addressAnim address");
+      setArrowClass("arrowAnim arrow");
+  }, []);
+
+  const Form = () => {
+  
+      const formSubmit = (e) => {
+          e.preventDefault();
+          emailjs.send('service_k8lwgll', 'template_6ivx7ff', {
+              name: form.current.name.value,
+              email: form.current.email.value,
+              checkIn: form.current.checkIn.value,
+              checkOut: form.current.checkOut.value,
+              message: form.current.message.value,
+          }, 'jNY0lGrNxSb3KUch9');
+          setIsSubmit(true);
+      }
+          
+      return(
+          <form className="form" ref={form} onSubmit={formSubmit}>
+              <h4>Request a Reservation</h4>
+              <input type="text" name="name" placeholder='Full Name' required />
+              <input type="email" name='email' placeholder='Email Address' required />
+              <div className="datesContainer">
+                  <div className="checkIn">
+                      <p>CHECK-IN:</p>
+                      <input type="date" name='checkIn' />
+                  </div>
+                  <div className='checkOut'>
+                      <p>CHECK-OUT:</p>
+                      <input type="date" name='checkOut' />
+                  </div>
+              </div>
+              <textarea name="message" id="message" cols="30" rows="10" placeholder='Message' ></textarea>
+              <input id='submitButton' type="submit" />
+          </form>
+      );
+  }
+
+  const SubmitMessage = () => {
+
+      return(
+          <div className="submitMessage">
+              <img src={circleCheckIcon} alt='Check Mark Icon' />
+              <p>Thanks for your request! We will reach out shortly with confirmation or to help you reschedule.</p>
+          </div>
+      );
+  }
+
+  const Other = () => {
+      return(
+          <div className="other">
+              <p>Request a reservation, ask a question, or just get in touch.</p>
+              <div className='email'>
+                  <p>Email Us:</p>
+                  <div>
+                      <p>loonCottages@hotmail.com</p>
+                      <button onClick={() => navigator.clipboard.writeText("loonCottages@hotmail.com")}>Copy</button>
+                  </div>
+              </div>
+              <div className='phone'>
+                  <p>Text or Call Us:</p>
+                  <div>
+                      <p>207-322-1081</p>
+                      <button onClick={() => navigator.clipboard.writeText("2073221081")}>Copy</button>
+                  </div>
+              </div>
+          </div>
+      );
+  }
+  
+  const contactDisplay = () => {
+
+      if(isReserve === true){
+          if(isSubmit === true){
+              return <SubmitMessage />
+          } else {
+              return <Form />
+          }
+      }else{
+          return <Other />
+      }
+  }
+
   return (
-    <main style={pageStyles}>
-      <h1 style={headingStyles}>
-        Congratulations
-        <br />
-        <span style={headingAccentStyles}>— you just made a Gatsby site! 🎉🎉🎉</span>
-      </h1>
-      <p style={paragraphStyles}>
-        Edit <code style={codeStyles}>src/pages/index.js</code> to see this page
-        update in real-time. 😎
-      </p>
-      <ul style={listStyles}>
-        <li style={docLinkStyle}>
-          <a
-            style={linkStyle}
-            href={`${docLink.url}?utm_source=starter&utm_medium=start-page&utm_campaign=minimal-starter`}
-          >
-            {docLink.text}
-          </a>
-        </li>
-        {links.map(link => (
-          <li key={link.url} style={{ ...listItemStyles, color: link.color }}>
-            <span>
-              <a
-                style={linkStyle}
-                href={`${link.url}?utm_source=starter&utm_medium=start-page&utm_campaign=minimal-starter`}
-              >
-                {link.text}
-              </a>
-              {link.badge && (
-                <span style={badgeStyle} aria-label="New Badge">
-                  NEW!
-                </span>
-              )}
-              <p style={descriptionStyle}>{link.description}</p>
-            </span>
-          </li>
-        ))}
-      </ul>
-      <img
-        alt="Gatsby G Logo"
-        src="data:image/svg+xml,%3Csvg width='24' height='24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 2a10 10 0 110 20 10 10 0 010-20zm0 2c-3.73 0-6.86 2.55-7.75 6L14 19.75c3.45-.89 6-4.02 6-7.75h-5.25v1.5h3.45a6.37 6.37 0 01-3.89 4.44L6.06 9.69C7 7.31 9.3 5.63 12 5.63c2.13 0 4 1.04 5.18 2.65l1.23-1.06A7.959 7.959 0 0012 4zm-8 8a8 8 0 008 8c.04 0 .09 0-8-8z' fill='%23639'/%3E%3C/svg%3E"
-      />
-    </main>
-  )
+      <div>
+          <main className='main'>
+              <div className='hero'>
+                  <StaticImage src='../images/frontView.png' alt='Image of Chickadee' />
+                  <div className='header'>
+                      <h1 className={headerClass}>Loon Lookout - Chickadee</h1>
+                      <a className={addressClass} href='https://www.google.com/maps/place/14+W+Moores+Shore+Ln,+Swanville,+ME+04915' target="_blank" rel="noopener noreferrer">14 West Moores Shore Lane, Swanville, Maine</a>
+                      <Link className={arrowClass} to='landingPage' smooth={true}>
+                        <img src={expandArrow} alt='Arrow' />
+                      </Link>
+                  </div>
+              </div>
+              <div name='landingPage' className='landingPageContainer'>
+                  <div className="landingPageContent">
+                      <div className="houseOverview divider">
+                          <h2>Loon Lookout - Chickadee</h2>
+                          <div className="houseDetails">
+                              <p>1 Bedroom</p><div className="dot"></div><p>1 Bathroom</p><div className="dot"></div><p>Lakeside View</p>
+                          </div>
+                      </div>
+                      <div className="description divider">
+                          <p>Welcome to our cozy and affordable rental cottage in the small and peaceful town of Swanville. With over 40 years of experience in the rental business, the owners are dedicated to providing our guests with a comfortable and enjoyable stay. The cottage has a beautiful view of the lake, perfect for those who love to relax and take in the natural scenery. Just a 5-minute drive from the cottage, you'll find Swan Lake State Park. The park offers a great beach for swimming, fishing, and other recreational activities, making it a destination for families and outdoor enthusiasts. Book your stay today and experience all that Swanville has to offer.</p>
+                      </div>
+                      <div className="imgSliderContainer divider">
+                          <Swiper className='imgSlider' modules={[Navigation, A11y]} spaceBetween={30} slidesPerView='auto' navigation>
+                              <SwiperSlide><StaticImage src='../images/livingRoom3.jpg' alt='Couch, rocking chair, and stand still chair' /></SwiperSlide>
+                              <SwiperSlide><StaticImage src='../images/livingRoom1.jpg' alt='Living room with TV, couch, and rocking chair' /></SwiperSlide>
+                              <SwiperSlide><StaticImage src='../images/bedroom1.jpg' alt='Queen bed with full linens' /></SwiperSlide>
+                              <SwiperSlide><StaticImage src='../images/bedroom2.jpg' alt='End of queen bed and dresser' /></SwiperSlide>
+                              <SwiperSlide><StaticImage src='../images/deck1.jpg' alt='Large deck with chairs and driveway in background' /></SwiperSlide>
+                              <SwiperSlide><StaticImage src='../images/deck2.jpg' alt='Large deck with grill and chairs' /></SwiperSlide>
+                              <SwiperSlide><StaticImage src='../images/deck3.jpg' alt='Large yard with grass and trees' /></SwiperSlide>
+                              <SwiperSlide><StaticImage src='../images/sideView.jpg' alt='Side view of house with deck and plants' /></SwiperSlide>
+                              <SwiperSlide><StaticImage src='../images/flowers1.jpg' alt='Flowers next to beautiful stone wall' /></SwiperSlide>
+                              <SwiperSlide><StaticImage src='../images/flowers2.jpg' alt='Large collection of green shrubbery and flowers' /></SwiperSlide>
+                              <SwiperSlide><StaticImage src='../images/kitchen.jpg' alt='kitchen with sink and refrigerator' /></SwiperSlide>
+                              <SwiperSlide><StaticImage src='../images/bathroom1.jpg' alt='bathroom view of toilet' /></SwiperSlide>
+                              <SwiperSlide><StaticImage src='../images/bathroom2.jpg' alt='bathroom view of sink' /></SwiperSlide>
+                          </Swiper>
+                      </div>
+                      <div className="statePark divider">
+                        <StaticImage src='../images/statePark.jpeg' alt='Picture of Swan Lake State Park' />
+                        <div>
+                            <h3>Swan Lake State Park</h3>
+                            <p>Swan Lake State Park is the perfect outing. The park features a beach with easy access to the water, fishing, and a park. Day passes are just $7 and it is less than a 5 minute drive from Chickadee.</p>
+                        </div>
+                      </div>
+                      <div className="amenitiesContainer divider">
+                          <div className="wifi">
+                            <img src={wifiIcon} alt='Wifi symbol' />
+                            <p>Wifi</p>
+                          </div>
+                          <div className="television">
+                            <img src={televisionIcon} alt='TV symbol' />
+                            <p>TV with Roku</p>
+                          </div>
+                          <div className="water">
+                            <img src={waterIcon} alt='Water symbol' />
+                            <p>Water View</p>
+                          </div>
+                          <div className="parking">
+                            <img src={parkingIcon} alt='Parking symbol' />
+                            <p>Private</p>
+                          </div>
+                          <div className="linens">
+                            <img src={linensIcon} alt='Linens symbol' />
+                            <p>Full Linens Provided</p>
+                          </div>
+                          <div className="owners">
+                            <img src={ownersIcon} alt='Owners symbol' />
+                            <p>Owners Live Near Site</p>
+                          </div>
+                          <div className="insulated">
+                            <img src={insulatedIcon} alt='Insulation symbol' />
+                            <p>Fully Insulated With Heater</p>
+                          </div>
+                          <div className="grill">
+                            <img src={grillIcon} alt='Grill symbol' />
+                            <p>Outdoor Grill</p>
+                          </div>
+                          <div className="refrigerator">
+                            <img src={refrigeratorIcon} alt='Refrigerator symbol' />
+                            <p>Refrigerator</p>
+                          </div>
+                          <div className="stove">
+                            <img src={stoveIcon} alt='Stove symbol' />
+                            <p>Electric Stove</p>
+                          </div>
+                          <div className="microwave">
+                            <img src={microwaveIcon} alt='Microwave symbol' />
+                            <p>Microwave</p>
+                          </div>
+                          <div className="coffee">
+                            <img src={coffeeIcon} alt='Coffee Maker symbol' />
+                            <p>Coffee Maker</p>
+                          </div>
+                      </div>
+                      <div className="mapContainer">
+                          <Map />
+                          <div className="mapInfo">
+                              <h3>Swan Lake - Maine</h3>
+                              <a href='https://www.google.com/maps/place/14+W+Moores+Shore+Ln,+Swanville,+ME+04915' target="_blank" rel="noopener noreferrer">14 West Moores Shore Lane, Swanville, ME</a>
+                          </div>
+                      </div>
+                  </div>
+                  <div className="CTAContianer">
+                      <div className="priceContainer">
+                          <p className='price'>$750</p>
+                          <p className='weekly'>Weekly</p>
+                      </div>
+                      <div className="contactContainer">
+                          <ul>
+                              <li><a className={`left ${leftClass}`} onClick={() => {
+                                  setIsReserve(true);
+                                  setLeftClass("active");
+                                  setRightClass("");
+                              }}><span>Reserve</span></a></li>
+                              <li><a className={`right ${rightClass}`} onClick={() => {
+                                  setIsReserve(false);
+                                  setRightClass("active");
+                                  setLeftClass("");
+                              }}><span>Contact</span></a></li>
+                          </ul>
+                          {contactDisplay()}
+                      </div>
+                  </div>
+              </div>
+          </main>
+          <div className='footer'>
+              <p>Copyright © 2023, Loon Lookout Cottages</p>
+          </div>
+      </div>
+  );
 }
 
 export default IndexPage

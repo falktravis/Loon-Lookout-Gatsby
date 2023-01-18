@@ -1,0 +1,669 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat|Plus+Jakarta+Sans);
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.main{
+    width: 100%;
+
+    .hero{
+        width: 100%;
+        height: auto;
+        position: relative;
+
+        & > .gatsby-image-wrapper{
+            width: 100%;
+            height: 100vh;
+            z-index: -1;
+        }
+
+        .header{
+            position: absolute;
+            top: 7%;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: Plus Jakarta Sans;
+
+            h1{
+                font-size: calc(48px + 0.390625vw);
+                display: none;
+            }
+
+            .headerAnim{
+                display: block;
+                animation: fadeUp 1500ms ease 0ms 1;
+            }
+
+            .address{
+                font-size: calc(16px + 0.390625vw);
+                text-decoration: none;
+                color: black;
+                transition: 500ms;
+                position: relative;
+                display: none;
+
+                &:hover{
+                    color: #0077ff;
+                }
+
+                &::after{
+                    content: '';
+                    background: #0077ff;
+                    display: block;
+                    height: 0.15vw;
+                    width: 100%;
+                    transform: scaleX(0);
+                    transform-origin: bottom right;
+                    transition: transform 0.2s ease-in-out;
+                    position: absolute;
+                    border-radius: 5px;
+                    margin-top: 2px;
+                }
+        
+                &:hover::after{
+                    transform: scaleX(1);
+                    transform-origin: bottom left;
+                }
+            }
+
+            .addressAnim{
+                display: block;
+                animation: fadeUp 1800ms ease 0ms 1;
+            }
+
+            .arrow{
+                text-decoration: none;
+                display: none;
+
+                &:hover{
+                    cursor: pointer;
+                }
+
+                img{
+                    width: 80px;
+                    padding-top: 7.5px;
+                    transition: 200ms;
+
+                    &:hover{
+                        width: 95px;
+                        padding-top: 0;
+                    }
+
+                }
+            }
+
+            .arrowAnim{
+                display: block;
+                animation: fadeUp 2100ms ease 0ms 1;
+            }
+
+            @keyframes fadeUp {
+                0%{
+                    transform: translateY(80px);
+                    color: transparent;
+                }
+                100%{
+                    transform: translateY(0);
+                    color: black;
+                }
+            }
+        }
+    }
+
+    .landingPageContainer{
+        width: 80%;
+        margin: 0 10%;
+        display: flex;
+
+        .CTAContianer{
+            border-radius: 20px;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            height: 52vh;
+            width: 25%;
+            position: sticky;
+            top: 5%;
+            margin-top: 3%;
+            font-family: Plus Jakarta Sans;
+
+            .priceContainer{
+                width: 100%;
+                height: 14%;
+                display: flex;
+                align-items: center;
+
+                p{
+                    margin-top: auto;
+                    font-weight: 700;
+                }
+                
+                .price{
+                    font-size: calc(34px + 0.390625vw);
+                    margin-left: 10%;
+                }
+
+                .weekly{
+                    font-size: calc(16px + 0.390625vw);
+                    margin-bottom: 4px;
+                    margin-left: 4px;
+                    color: rgb(78, 78, 78);
+                }
+            }
+
+            .contactContainer{
+                width: 90%;
+                height: 85%;
+                margin-left: 5%;
+                position: relative;
+
+                ul{
+                    display: flex;
+                    justify-content: space-between;
+                    position: relative;
+                    height: 13%;
+
+                    &::after{
+                        content: '';
+                        width: 100%;
+                        display: block;
+                        position: absolute;
+                        height: 1px;
+                        bottom: 0;
+                        background-color: grey;
+                        border-radius: 10px;
+                    }
+
+                    li{
+                        list-style-type: none;
+                        width: 50%;
+                        height: 100%;
+
+                        a{
+                            width: 100%;
+                            height: 100%;
+                            text-decoration: none;
+                            display: block;
+                            position: relative;
+
+                            &:hover{
+                                cursor: pointer;
+                            }
+
+                            &::after{
+                                content: '';
+                                width: 100%;
+                                display: block;
+                                position: absolute;
+                                height: 3px;
+                                bottom: 0;
+                                background-color: black;
+                                transform: scaleX(0);
+                                transition: 0.3s;
+                                z-index: 2;
+                            }
+
+                            span{
+                                position: absolute;
+                                bottom: 15%;
+                                width: 100%;
+                                text-align: center;
+                                font-size: calc(14px + 0.390625vw);
+                                font-weight: 600;
+                            }
+                        }
+
+                        .left{
+                            &::after{
+                                transform-origin: bottom right;
+                            }
+                        }
+
+                        .right{
+                            &::after{
+                                transform-origin: bottom left;
+                            }
+                        }
+
+                        .active{
+                            &::after{
+                                transform: scaleX(1);
+                            }
+                        }
+                    }
+                }
+
+                .other{
+                    height: 100%;
+                    width: 100%;
+                    padding-top: 10%;
+
+                    & > p{
+                        font-weight: 500;
+                        font-size: calc(16px + 0.390625vw);
+                        text-align: center;
+                    }
+
+                    .email{
+                        margin-top: 12%;
+                    }
+
+                    & > div{
+                        margin-top: 4%;
+    
+                        & > p{
+                            font-weight: 600;
+                            font-size: calc(18px + 0.390625vw);
+                        }
+        
+                        div{
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: center;
+                            margin-top: 3%;
+                            width: 95%;
+                            margin-left: 2.5%;
+        
+                            p{
+                                font-size: calc(10px + 0.390625vw);
+                            }
+        
+                            button{
+                                height: 33px;
+                                width: 65px;
+                                border-radius: 6px;
+                                color: white;
+                                background-color: #22bbe9;
+                                border: 2px solid #22bbe9;
+                                font-weight: 600;
+                                transition: 200ms;
+                                font-size: calc(10px + 0.390625vw);
+        
+                                &:hover{
+                                    cursor: pointer;
+                                    background-color: white;
+                                    color: #22bbe9;
+                                    border: 2px solid #22bbe9;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .form{
+                    height: 86%;
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-around;
+
+                    h4{
+                        margin-top: 3%;
+                        text-indent: 10px;
+                        font-size: calc(16px + 0.390625vw);
+                    }
+
+                    input, textarea{
+                        width: 100%;
+                        height: 10%;
+                        border: 1px solid black;
+                        border-radius: 5px;
+                        outline: none;
+                        color: grey;
+                        text-indent: 10px;
+                        font-family: Plus Jakarta Sans;
+                    }
+
+                    textarea{
+                        height: 30%;
+                        padding-top: 10px;
+                        resize: none;
+                    }
+
+                    .datesContainer{
+                        width: 100%;
+                        height: 15%;
+                        display: flex;
+                        justify-content: space-between;
+
+                        div{
+                            width: 48%;
+                            height: 70%;
+
+                            P{
+                                color: black;
+                                font-size: 10px;
+                                margin-top: 2px;
+                                font-weight: 600;
+                                text-indent: 5px;
+                            }
+
+                            input{
+                                width: 100%;
+                                height: 100%;
+                                margin: 0;
+                                text-indent: 5px;
+                                position: relative;
+
+                                &::-webkit-calendar-picker-indicator{
+                                    padding: 10px;
+
+                                    &:hover{
+                                        cursor: pointer;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    #submitButton{
+                        width: 30%;
+                        border-radius: 10px;
+                        color: white;
+                        background-color: #22bbe9;
+                        border: 2px solid #22bbe9;
+                        font-weight: 600;
+                        transition: 200ms;
+                        font-size: calc(12px + 0.390625vw);
+                        text-indent: 0;
+                        font-weight: 600;
+                        margin-left: auto;
+
+                        &:hover{
+                            cursor: pointer;
+                            background-color: white;
+                            color: #22bbe9;
+                            border: 2px solid #22bbe9;
+                        }
+                    }
+                }
+
+                .submitMessage{
+                    height: 85%;
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+
+                    img{
+                        width: auto;
+                        height: 10vh;
+                        margin-bottom: 2vh;
+                    }
+
+                    p{
+                        font-family: Plus Jakarta Sans;
+                        font-size: calc(12px + 0.390625vw);
+                        text-align: center;
+                    }
+                }
+            }
+        }
+
+        .landingPageContent{
+            width: 75%;
+            height: 100%;
+
+            .divider{
+                position: relative;
+
+                &::after{
+                    content: '';
+                    display: block;
+                    left: 7.5%;
+                    width: 85%;
+                    height: 1px;
+                    position: absolute;
+                    bottom: 0;
+                    background-color: rgb(207, 207, 207);
+                }
+            }
+
+            .houseOverview{
+                width: 100%;
+                height: 20vh;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+
+                h2{
+                    font-family: Plus Jakarta Sans;
+                    font-size: calc(34px + 0.390625vw);
+                    margin-left: 10%;
+                }
+
+                .houseDetails{
+                    display: flex;
+                    align-items: center;
+                    margin-left: 10%;
+
+                    p{
+                        font-family: Montserrat;
+                        font-size: calc(14px + 0.390625vw);
+                    }
+    
+                    .dot{
+                        display: block;
+                        background-color: black;
+                        border-radius: 100%;
+                        width: 4px;
+                        height: 4px;
+                        margin: 5px;
+                    }
+                }
+            }
+
+            .description{
+                width: 80%;
+                padding: 4% 10%;
+                text-indent: 3%;
+                font-family: Montserrat;
+                font-size: calc(12px + 0.390625vw);
+            }
+
+            .imgSliderContainer{
+                width: 90%;
+                height: 40vh;
+                padding: 4% 5%;
+
+                .imgSlider{
+                    height: 100%;
+                    width: 100%;
+                    position: relative;
+
+                    div{
+                        height: 100%;
+                        width: auto;
+
+                        img{
+                            height: 100%;
+                        }
+                    }
+
+                    .swiper-button-next, .swiper-button-prev{
+                        top: 0;
+                        margin-top: 0;
+                        height: 30%;
+                        top: 35%;
+                        padding: 0 10px;
+
+                        &::after{
+                            color: black;
+                            font-weight: 600;
+                        }
+                    }
+
+                    .swiper-button-disabled{
+                        display: none;
+                    }
+
+                    .page1{
+                        background-color: blue;
+                    }
+
+                    .page2{
+                        background-color: green;
+                    }
+
+                    .page3{
+                        background-color: yellow;
+                    }
+                }
+            }
+
+            .statePark{
+                width: 90%;
+                height: 35vh;
+                display: flex;
+                align-items: center;
+                justify-content: space-around;
+                padding: 4% 5%;
+
+                .gatsby-image-wrapper{
+                    width: 55%;
+                    height: 100%;
+                    border-radius: 15px;
+
+                    img{
+                        width: 100%;
+                        height: auto;
+                    }
+                }
+
+                div{
+                    width: 30%;
+                    height: 80%;
+                    margin-left: 3vw;
+                    font-family: Plus Jakarta Sans;
+                    
+                    h3{
+                        font-size: calc(22px + 0.390625vw);
+                    }
+
+                    p{
+                        margin-top: 2vh;
+                        text-indent: 20px;
+                        font-size: calc(12px + 0.390625vw); 
+                    }
+                }
+            }
+
+            .amenitiesContainer{
+                width: 85%;
+                padding: 4% 7.5%;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+
+                div{
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    height: 7vh;
+                    width: 95%;
+                    border-radius: 10px;
+                    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+                    margin: 10px;
+                    transition: 200ms;
+
+                    &:hover{
+                        cursor: pointer;
+                        padding: 2px;
+                        width: calc(95% - 1px);
+                        margin: 8px;
+
+                        img{
+                            width: 42px;
+                            margin-left: calc(5% - 1px);
+                        }
+                    }
+                    
+                    img{
+                        width: 40px;
+                        margin-left: 5%;
+                        transition: 200ms;
+                    }
+
+                    p{
+                        margin-right: 5%;
+                        font-family: Montserrat;
+                        font-weight: 600;
+                        font-size: calc(12px + 0.390625vw);
+                    }
+                }
+            }
+
+            .mapContainer{
+                width: 90%;
+                margin: 4% 5%;
+
+                .map{
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 10px;
+                    height: 40vh;
+                }
+
+                .mapInfo{
+                    width: 100%;
+                    padding: 3% 5%;
+                    font-family: Plus Jakarta Sans;
+
+                    h3{
+                        font-size: calc(24px + 0.390625vw);
+                    }
+                    
+                    a{
+                        font-size: calc(14px + 0.390625vw);
+                        text-decoration: none;
+                        color: black;
+                        transition: 500ms;
+                        position: relative;
+        
+                        &:hover{
+                            color: #0077ff;
+                        }
+        
+                        &::after{
+                            content: '';
+                            background: #0077ff;
+                            display: block;
+                            height: 0.15vw;
+                            width: 100%;
+                            transform: scaleX(0);
+                            transform-origin: bottom right;
+                            transition: transform 0.2s ease-in-out;
+                            position: absolute;
+                            border-radius: 5px;
+                            margin-top: 2px;
+                        }
+                
+                        &:hover::after{
+                            transform: scaleX(1);
+                            transform-origin: bottom left;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+    
+.footer{
+    width: 100%;
+    height: 5vh;
+    background-color: rgb(245, 245, 245);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    p, a{
+        color: black;
+        font-family: Montserrat;
+        font-weight: 600;
+        font-size: calc(10px + 0.390625vw)
+    }
+}
