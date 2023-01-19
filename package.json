@@ -1,9 +1,6 @@
 {
   "name": "loon-lookout-gatsby",
   "version": "1.0.0",
-  "engines": {
-    "node": "18.12.1"
-  },
   "private": true,
   "description": "loon-lookout-gatsby",
   "author": "skateeveryday10",
@@ -30,6 +27,7 @@
     "gatsby-plugin-sharp": "^5.4.0",
     "gatsby-source-filesystem": "^5.4.0",
     "gatsby-transformer-sharp": "^5.4.0",
+    "node": "^19.4.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scroll": "^1.8.9",
