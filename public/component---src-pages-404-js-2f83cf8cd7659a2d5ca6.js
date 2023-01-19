@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkloon_lookout_gatsby=self.webpackChunkloon_lookout_gatsby||[]).push([[883],{429:function(e,o,t){t.r(o);var l=t(7294);o.default=()=>l.createElement("div",{className:"404"},l.createElement("p",null,"Page not Found"))}}]);
-//# sourceMappingURL=component---src-pages-404-js-2f83cf8cd7659a2d5ca6.js.map
