@@ -1,6 +1,9 @@
 {
   "name": "loon-lookout-gatsby",
   "version": "1.0.0",
+  "engines": {
+    "node": "18.12.1"
+  },
   "private": true,
   "description": "loon-lookout-gatsby",
   "author": "skateeveryday10",
