@@ -3,6 +3,7 @@
 *{
     margin: 0;
     padding: 0;
+    -webkit-appearance: none !important;
 }
 
 .main{
@@ -483,6 +484,13 @@
                             color: grey;
                             text-indent: 10px;
                             font-family: Plus Jakarta Sans;
+
+                            @media (max-width: 1000px) {
+                                font-size: calc(16px + 0.390625vw);
+                            }
+                            @media (max-width: 450px) {
+                                font-size: calc(13px + 0.390625vw);
+                            }
                         }
     
                         textarea{
@@ -539,6 +547,13 @@
                             text-indent: 0;
                             font-weight: 600;
                             margin-left: auto;
+
+                            @media (max-width: 1000px) {
+                                font-size: calc(20px + 0.390625vw);
+                            }
+                            @media (max-width: 400px) {
+                                font-size: calc(15px + 0.390625vw);
+                            }
     
                             &:hover{
                                 cursor: pointer;
