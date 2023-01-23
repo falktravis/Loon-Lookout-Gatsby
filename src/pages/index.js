@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import Map from '../components/Map';
 import { Link } from 'react-scroll';
+import { Link as GatsbyLink} from 'gatsby';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import emailjs from '@emailjs/browser';
 import { Navigation, A11y } from 'swiper';
@@ -30,6 +31,7 @@ const IndexPage = () => {
   const [arrowClass, setArrowClass] = useState("arrow");
   const [leftClass, setLeftClass] = useState('active');
   const [rightClass, setRightClass] = useState('');
+  const [CTAContainerClass, setCTAContainerClass] = useState(false);
   const [isReserve, setIsReserve] = useState(true);
   const [isSubmit, setIsSubmit] = useState(false);
   const form = useRef();
@@ -93,14 +95,12 @@ const IndexPage = () => {
                   <p>Email Us:</p>
                   <div>
                       <p>loonCottages@hotmail.com</p>
-                      <button onClick={() => navigator.clipboard.writeText("loonCottages@hotmail.com")}>Copy</button>
                   </div>
               </div>
               <div className='phone'>
                   <p>Text or Call Us:</p>
                   <div>
                       <p>207-322-1081</p>
-                      <button onClick={() => navigator.clipboard.writeText("2073221081")}>Copy</button>
                   </div>
               </div>
           </div>
@@ -118,6 +118,14 @@ const IndexPage = () => {
       }else{
           return <Other />
       }
+  }
+
+  const reserveButton = () => {
+    if(CTAContainerClass === true){
+      return 'active';
+    }else{
+      return '';
+    }
   }
 
   return (
@@ -145,7 +153,7 @@ const IndexPage = () => {
                           <p>Welcome to our cozy and affordable rental cottage in the small and peaceful town of Swanville. With over 40 years of experience in the rental business, the owners are dedicated to providing our guests with a comfortable and enjoyable stay. The cottage has a beautiful view of the lake, perfect for those who love to relax and take in the natural scenery. Just a 5-minute drive from the cottage, you'll find Swan Lake State Park. The park offers a great beach for swimming, fishing, and other recreational activities, making it a destination for families and outdoor enthusiasts. Book your stay today and experience all that Swanville has to offer.</p>
                       </div>
                       <div className="imgSliderContainer divider">
-                          <Swiper className='imgSlider' modules={[Navigation, A11y]} spaceBetween={30} slidesPerView='auto' navigation>
+                          <Swiper className='imgSlider' modules={[Navigation, A11y]} spaceBetween={20} slidesPerView='auto' navigation>
                               <SwiperSlide><StaticImage src='../images/livingRoom3.jpg' alt='Couch, rocking chair, and stand still chair' /></SwiperSlide>
                               <SwiperSlide><StaticImage src='../images/livingRoom1.jpg' alt='Living room with TV, couch, and rocking chair' /></SwiperSlide>
                               <SwiperSlide><StaticImage src='../images/bedroom1.jpg' alt='Queen bed with full linens' /></SwiperSlide>
@@ -163,7 +171,7 @@ const IndexPage = () => {
                       </div>
                       <div className="statePark divider">
                         <StaticImage src='../images/statePark.jpeg' alt='Picture of Swan Lake State Park' />
-                        <div>
+                        <div className='stateParkDetails'>
                             <h3>Swan Lake State Park</h3>
                             <p>Swan Lake State Park is the perfect outing. The park features a beach with easy access to the water, fishing, and a park. Day passes are just $7 and it is less than a 5 minute drive from Chickadee.</p>
                         </div>
@@ -226,10 +234,18 @@ const IndexPage = () => {
                           </div>
                       </div>
                   </div>
-                  <div className="CTAContianer">
+                  <div className={`CTAContainer ${reserveButton()}`}>
+                    <div className="CTA">
                       <div className="priceContainer">
-                          <p className='price'>$750</p>
-                          <p className='weekly'>Weekly</p>
+                        <p className='price'>$750</p>
+                        <p className='weekly'>Weekly</p>
+                      </div>
+                      <button onClick={() => {setCTAContainerClass(!CTAContainerClass)}} className={reserveButton()} >Reserve<img src={expandArrow} alt="Arrow" /></button>
+                    </div>
+                    <div className={`CTAContent ${reserveButton()}`}>
+                      <div className="priceContainer">
+                        <p className='price'>$750</p>
+                        <p className='weekly'>Weekly</p>
                       </div>
                       <div className="contactContainer">
                           <ul>
@@ -246,11 +262,12 @@ const IndexPage = () => {
                           </ul>
                           {contactDisplay()}
                       </div>
+                    </div>
                   </div>
               </div>
           </main>
           <div className='footer'>
-              <p>Copyright © 2023, Loon Lookout Cottages</p>
+            <p><GatsbyLink to='/PrivacyPolicy'>Privacy Policy</GatsbyLink> | Copyright © 2023, Travis Falk</p>
           </div>
       </div>
   );
@@ -258,4 +275,13 @@ const IndexPage = () => {
 
 export default IndexPage
 
-export const Head = () => <title>Home Page</title>
+export const Head = () => {
+  return(
+      <>
+          <title>Loon Lookout</title>
+          <meta name='description' content='Cheap, cozy cottage for rent in Swanville, Maine.' />
+          <meta name='keywords' content='Rent Swanville Maine Cottage House Swanlake Lake'/>
+          <link rel="canonical" href="https://loonlookout.com" />
+      </>
+  );
+}

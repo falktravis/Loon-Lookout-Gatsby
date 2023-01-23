@@ -10,4 +10,13 @@ const NotFoundPage = () => {
 
 export default NotFoundPage
 
-export const Head = () => <title>Not found</title>
+export const Head = () => {
+  return(
+      <>
+          <title>Loon Lookout</title>
+          <meta name='description' content='Cheap, cozy cottage for rent in Swanville, Maine.' />
+          <meta name='keywords' content='Rent Swanville Maine Cottage House Swanlake Lake'/>
+          <link rel="canonical" href="https://loonlookout.com" />
+      </>
+  );
+}

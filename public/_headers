@@ -5,19 +5,21 @@
   X-XSS-Protection: 1; mode=block
   X-Content-Type-Options: nosniff
   Referrer-Policy: same-origin
-/component---src-pages-404-js-68a4868b3204fd7d7c9f.js
+/component---src-pages-404-js-c52f99f20386131b711a.js
   Cache-Control: public, max-age=31536000, immutable
-/styles.38b09ee7b59e31266a3e.css
+/styles.6230035a578f312a5cf9.css
   Cache-Control: public, max-age=31536000, immutable
 /7d0bf13e-f4b58f349f35c2f4937b.js
   Cache-Control: public, max-age=31536000, immutable
-/component---src-pages-index-js-3aeda73a5b6210829e15.js
+/component---src-pages-index-js-4323c120148d8e69246e.js
   Cache-Control: public, max-age=31536000, immutable
-/webpack-runtime-e575f286f78acdcf1c10.js
+/component---src-pages-privacy-policy-js-f34ece328689ce4358c2.js
+  Cache-Control: public, max-age=31536000, immutable
+/webpack-runtime-038aa10e013d96994dbc.js
   Cache-Control: public, max-age=31536000, immutable
 /framework-7cee6ae3771cccc49c48.js
   Cache-Control: public, max-age=31536000, immutable
-/app-3ff0dbd9e09869e160a2.js
+/app-4cef49c69150f998c9ee.js
   Cache-Control: public, max-age=31536000, immutable
 /static/*
   Cache-Control: public, max-age=31536000, immutable
