@@ -713,15 +713,21 @@
                     width: 100%;
                     position: relative;
 
-                    div{
+                    & > div{
                         height: 100%;
                         width: auto;
 
-                        img{
+                        div{
+                            width: auto;
                             height: 40vh;
-
+            
                             @media (max-width:568px) {
                                 height: 50vh;
+                            }
+
+                            img{
+                                height: 100%;
+                                width: auto;
                             }
                         }
                     }
