@@ -282,6 +282,9 @@ export const Head = () => {
           <meta name='description' content='Cheap, cozy cottage for rent in Swanville, Maine.' />
           <meta name='keywords' content='Rent Swanville Maine Cottage House Swanlake Lake'/>
           <link rel="canonical" href="https://loonlookout.com" />
+          <link rel="preconnect" href="https://fonts.googleapis.com" />
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+          <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Plus+Jakarta+Sans&display=swap" rel="stylesheet" />
       </>
   );
 }

@@ -31,7 +31,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            font-family: Plus Jakarta Sans;
+            font-family: 'Plus Jakarta Sans', sans-serif;
 
             @media (max-width:768px) {
                 display: none;
@@ -195,7 +195,7 @@
                     height: auto;
                     display: flex;
                     justify-content: center;
-                    font-family: Plus Jakarta Sans;
+                    font-family: 'Plus Jakarta Sans', sans-serif;
                     margin-left: 5%;
     
                     p{
@@ -228,9 +228,10 @@
                     margin: auto 5%;
                     padding-left: 10px;
                     border-radius: 10px;
-                    font-family: Plus Jakarta Sans;
+                    font-family: 'Plus Jakarta Sans', sans-serif;
                     transition: 400ms ease-in-out;
                     height: 5vh;
+                    color: black !important;
 
                     img{
                         transition: 300ms ease-in-out;
@@ -255,7 +256,7 @@
                 box-shadow: rgba(0, 0, 0, 0.35) 0 5px 15px;
                 width: 100%;
                 height: 100%;
-                font-family: Plus Jakarta Sans;
+                font-family: 'Plus Jakarta Sans', sans-serif;
                 transition: height 0.4s linear;
 
                 @media (max-width: 1000px) {
@@ -483,7 +484,7 @@
                             outline: none;
                             color: grey;
                             text-indent: 10px;
-                            font-family: Plus Jakarta Sans;
+                            font-family: 'Plus Jakarta Sans', sans-serif;
 
                             @media (max-width: 1000px) {
                                 font-size: calc(16px + 0.390625vw);
@@ -523,6 +524,7 @@
                                     margin: 0;
                                     text-indent: 5px;
                                     position: relative;
+                                    background-color: white !important;
     
                                     &::-webkit-calendar-picker-indicator{
                                         padding: 10px;
@@ -579,7 +581,7 @@
                         }
     
                         p{
-                            font-family: Plus Jakarta Sans;
+                            font-family: 'Plus Jakarta Sans', sans-serif;
                             font-size: calc(12px + 0.390625vw);
                             text-align: center;
                         }
@@ -642,7 +644,7 @@
                 }
 
                 h2{
-                    font-family: Plus Jakarta Sans;
+                    font-family: 'Plus Jakarta Sans', sans-serif;
                     font-size: 38px;
                     margin-left: 10%;
 
@@ -666,7 +668,7 @@
                     margin-left: 10%;
 
                     p{
-                        font-family: Montserrat;
+                        font-family: 'Montserrat', sans-serif;
                         font-size: calc(14px + 0.390625vw);
 
                         @media (max-width:400px) {
@@ -689,7 +691,7 @@
                 width: 80%;
                 padding: 4% 10%;
                 text-indent: 3%;
-                font-family: Montserrat;
+                font-family: 'Montserrat', sans-serif;
                 font-size: calc(15px + 0.390625vw);
 
                 @media (max-width:768px) {
@@ -787,7 +789,7 @@
                     width: 45%;
                     height: 90%;
                     margin-left: 3vw;
-                    font-family: Plus Jakarta Sans;
+                    font-family: 'Plus Jakarta Sans', sans-serif;
 
                     @media (max-width:1200px) {
                         width: 90%;
@@ -858,7 +860,7 @@
 
                     p{
                         margin-right: 5%;
-                        font-family: Montserrat;
+                        font-family: 'Montserrat', sans-serif;
                         font-weight: 600;
                         font-size: calc(12px + 0.390625vw);
 
@@ -891,8 +893,8 @@
                 .mapInfo{
                     width: 100%;
                     padding: 3% 0;
-                    padding-left: 5%;
-                    font-family: Plus Jakarta Sans;
+                    padding-left: 5%;   
+                    font-family: 'Plus Jakarta Sans', sans-serif;
 
                     h3{
                         font-size: calc(24px + 0.390625vw);
@@ -953,7 +955,7 @@
 
     p, a{
         color: black;
-        font-family: Montserrat;
+        font-family: 'Montserrat', sans-serif;
         font-weight: 600;
         font-size: calc(10px + 0.390625vw);
         text-decoration: none;
