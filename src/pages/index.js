@@ -146,11 +146,11 @@ const IndexPage = () => {
                       <div className="houseOverview divider">
                           <h2>Loon Lookout - Chickadee</h2>
                           <div className="houseDetails">
-                              <p>1 Bedroom</p><div className="dot"></div><p>1 Bathroom</p><div className="dot"></div><p>Lakeside View</p>
+                              <p>1 Bedroom</p><div className="dot"></div><p>1 Bathroom</p><div className="dot"></div><p>Partial Lakeside View</p>
                           </div>
                       </div>
                       <div className="description divider">
-                          <p>Welcome to our cozy and affordable rental cottage in the small and peaceful town of Swanville. With over 40 years of experience in the rental business, the owners are dedicated to providing our guests with a comfortable and enjoyable stay. The cottage has a beautiful view of the lake, perfect for those who love to relax and take in the natural scenery. Just a 5-minute drive from the cottage, you'll find Swan Lake State Park. The park offers a great beach for swimming, fishing, and other recreational activities, making it a destination for families and outdoor enthusiasts. Book your stay today and experience all that Swanville has to offer.</p>
+                          <p>Welcome to our cozy rental cottage in Swanville, Maine. We have been in the rental business for many years and  are dedicated to providing our guests with a comfortable and enjoyable stay.  The cottage has one queen size bed, a double sofa bed, bathroom, kitchen and living/dining room.  It is furnished (including linens) and recently renovated. The large front deck offers partial views of beautiful Swan Lake and is a great place to relax, cook on the grill, read a book  and enjoy the outdoors.</p>
                       </div>
                       <div className="imgSliderContainer divider">
                           <Swiper className='imgSlider' modules={[Navigation, A11y]} spaceBetween={20} slidesPerView='auto' navigation>
@@ -173,8 +173,13 @@ const IndexPage = () => {
                         <StaticImage src='../images/statePark.jpeg' alt='Picture of Swan Lake State Park' />
                         <div className='stateParkDetails'>
                             <h3>Swan Lake State Park</h3>
-                            <p>Swan Lake State Park is the perfect outing. The park features a beach with easy access to the water, fishing, and a park. Day passes are just $7 and it is less than a 5 minute drive from Chickadee.</p>
+                            <p>Swan Lake State Park is a 5-minute drive from the cottage- and offers a sandy beach for swimming, fishing, a children's playground and other recreational activities.</p>
                         </div>
+                      </div>
+                      <div className="belfast divider">
+                        <p>Nearby coastal Belfast has a thriving downtown with shopping and dining options. It also is host to the Maine Celtic celebration, an iconic shoe store,
+                        farmers markets, waterfront art festivals, historic walking tours, book stores, a food co-op and a 'rail trail' walk along the waterfront and beyond.  The waterfront offers scenic and educational boat rides.</p>
+                        <StaticImage src='../images/belfast.jpg' alt='Picture of Belfast' />
                       </div>
                       <div className="amenitiesContainer divider">
                           <div className="wifi">
@@ -203,7 +208,7 @@ const IndexPage = () => {
                           </div>
                           <div className="insulated">
                             <img src={insulatedIcon} alt='Insulation symbol' />
-                            <p>Fully Insulated With Heater</p>
+                            <p>Heater and A/C</p>
                           </div>
                           <div className="grill">
                             <img src={grillIcon} alt='Grill symbol' />
